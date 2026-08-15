@@ -222,7 +222,7 @@ export async function sendLeadNotificationEmail(
   const recipientEmail =
     process.env.NOTIFICATION_EMAIL ||
     process.env.SMTP_TO_EMAIL ||
-    "harshjhabksc@gmail.com";
+    "convertxmediazone@gmail.com";
 
   const subject = `🚀 [New Lead] ${lead.name}${lead.company ? ` (${lead.company})` : ""} - ${lead.businessType}`;
   const htmlContent = generateLeadEmailHtml(lead);
