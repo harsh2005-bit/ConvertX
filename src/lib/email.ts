@@ -222,7 +222,7 @@ export async function sendLeadNotificationEmail(
   const recipientEmail =
     process.env.NOTIFICATION_EMAIL ||
     process.env.SMTP_TO_EMAIL ||
-    "convertxmediazone@gmail.com";
+    "harshjhabksc@gmail.com";
 
   const subject = `🚀 [New Lead] ${lead.name}${lead.company ? ` (${lead.company})` : ""} - ${lead.businessType}`;
   const htmlContent = generateLeadEmailHtml(lead);
@@ -243,7 +243,7 @@ export async function sendLeadNotificationEmail(
       });
 
       if (error) {
-        console.error("Resend API error:", error);
+        console.error("Resend API error:", error.message);
       } else if (data?.id) {
         console.log(`[EMAIL DISPATCHED via Resend] ID: ${data.id} -> ${recipientEmail}`);
         return { success: true, provider: "resend", messageId: data.id };
