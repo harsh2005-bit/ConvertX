@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { TRUST_PILLARS } from "@/lib/constants";
-import { Shield, Sparkles, CheckCircle2 } from "lucide-react";
+import { Shield, CheckCircle2 } from "lucide-react";
 
 export const TrustSection: React.FC = () => {
   return (

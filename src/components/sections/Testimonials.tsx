@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/Badge";
-import { Quote, Sparkles, MessageSquareHeart } from "lucide-react";
+import { Quote, MessageSquareHeart } from "lucide-react";
 
 export const Testimonials: React.FC = () => {
   return (

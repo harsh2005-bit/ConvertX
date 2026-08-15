@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { SERVICES_LIST, ServiceItem } from "@/lib/constants";
+import { SERVICES_LIST } from "@/lib/constants";
 import { Badge } from "@/components/ui/Badge";
 import { 
   Target, 

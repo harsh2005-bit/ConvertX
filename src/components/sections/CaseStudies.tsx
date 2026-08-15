@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { CASE_STUDY_PLACEHOLDERS } from "@/lib/constants";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { FolderGit2, ArrowUpRight, Clock, Sparkles } from "lucide-react";
+import { ArrowUpRight, Clock, Sparkles } from "lucide-react";
 
 export const CaseStudies: React.FC = () => {
   return (
