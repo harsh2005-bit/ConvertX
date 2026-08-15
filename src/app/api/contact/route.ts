@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { sendLeadNotificationEmail, ContactLeadData } from "@/lib/email";
 
 const TARGET_CONTACT_EMAIL = "convertxmediazone@gmail.com";
 
@@ -24,40 +25,27 @@ export async function POST(request: Request) {
       );
     }
 
-    const leadPayload = {
-      targetNotificationEmail: TARGET_CONTACT_EMAIL,
+    const leadData: ContactLeadData = {
+      name: String(name).trim(),
+      company: company ? String(company).trim() : undefined,
+      email: String(email).trim().toLowerCase(),
+      phone: String(phone).trim(),
+      businessType: businessType || "E-commerce",
+      monthlyBudget: monthlyBudget || "₹50,000 - ₹1,50,000",
+      servicesNeeded: Array.isArray(servicesNeeded) ? servicesNeeded : [],
+      message: message ? String(message).trim() : undefined,
       submittedAt: new Date().toISOString(),
-      leadDetails: {
-        name,
-        company: company || "N/A",
-        email,
-        phone,
-        businessType: businessType || "E-commerce",
-        monthlyBudget: monthlyBudget || "₹50,000 - ₹1,50,000",
-        servicesNeeded: servicesNeeded || [],
-        message: message || "No additional message provided",
-      },
     };
 
-    // Log incoming lead dispatch to server output
-    console.log("==========================================");
-    console.log(`[NEW CONVERTX LEAD REQUEST RECEIVED] -> Sending to ${TARGET_CONTACT_EMAIL}`);
-    console.log(JSON.stringify(leadPayload, null, 2));
-    console.log("==========================================");
-
-    // Optional Webhook / Email integration hook (e.g. Resend, Webhook URL, or SMTP)
-    if (process.env.LEAD_WEBHOOK_URL) {
-      await fetch(process.env.LEAD_WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(leadPayload),
-      }).catch((err) => console.error("Webhook notification error:", err));
-    }
+    // Dispatch email notification through configured provider (Gmail SMTP / Resend / Webhook)
+    const emailResult = await sendLeadNotificationEmail(leadData);
 
     return NextResponse.json(
       {
         success: true,
-        message: `Lead submission received! Request routed to ${TARGET_CONTACT_EMAIL}.`,
+        message: `Thank you! Your growth inquiry has been received. We will connect with you at ${leadData.email} or ${leadData.phone} shortly.`,
+        provider: emailResult.provider,
+        targetEmail: TARGET_CONTACT_EMAIL,
       },
       { status: 200 }
     );
