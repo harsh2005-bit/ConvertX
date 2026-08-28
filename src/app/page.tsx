@@ -14,10 +14,11 @@ import { FAQ } from "@/components/sections/FAQ";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingContact } from "@/components/layout/FloatingContact";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#060608] text-slate-100 relative overflow-hidden">
+    <main className="theme-page relative overflow-hidden">
       <Navbar />
       <Hero />
       <TrustSection />
@@ -33,6 +34,7 @@ export default function Home() {
       <ContactForm />
       <FinalCTA />
       <Footer />
+      <FloatingContact />
     </main>
   );
 }

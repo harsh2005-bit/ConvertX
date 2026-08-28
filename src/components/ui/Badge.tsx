@@ -21,9 +21,10 @@ export const Badge: React.FC<BadgeProps> = ({
 
   const variants = {
     orange:
-      "bg-[#FF5500]/10 text-[#FF5500] border border-[#FF5500]/30 shadow-[0_0_15px_rgba(255,85,0,0.15)]",
-    dark: "bg-[#14161F] text-slate-300 border border-white/10",
-    outline: "bg-transparent text-slate-400 border border-white/15",
+      "bg-[var(--color-brand-subtle)] text-[var(--color-brand)] border border-[var(--color-brand)]/30",
+    dark: "bg-[var(--color-bg-card-elevated)] text-[var(--color-fg-muted)] border border-[var(--color-border)]",
+    outline:
+      "bg-transparent text-[var(--color-fg-muted)] border border-[var(--color-border)]",
   };
 
   return (

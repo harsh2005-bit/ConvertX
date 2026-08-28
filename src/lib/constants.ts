@@ -6,6 +6,7 @@ export interface ServiceItem {
   features: string[];
   icon: string;
   badge?: string;
+  href?: string;
 }
 
 export interface WhyItem {
@@ -29,6 +30,7 @@ export interface IndustryItem {
   description: string;
   icon: string;
   metricsPreview: string;
+  href?: string;
 }
 
 export interface CaseStudyPlaceholder {
@@ -53,16 +55,20 @@ export interface FAQItem {
 }
 
 export const CONTACT_EMAIL = "convertxmediazone@gmail.com";
-export const CONTACT_PHONE = "Available Upon Booking (Updating Soon)";
+export const CONTACT_PHONE = "+91 92965 69240";
+export const CONTACT_PHONE_RAW = "+919296569240";
+export const CONTACT_CALL_URL = "tel:+919296569240";
+export const CONTACT_WHATSAPP_URL = "https://wa.me/919296569240?text=Hi%20ConvertX%2C%20I'd%20like%20to%20discuss%20growing%20my%20business%20with%20your%20growth%20system.";
 
 export const NAV_LINKS = [
-  { label: "Home", href: "#hero" },
-  { label: "Services", href: "#services" },
-  { label: "Why ConvertX", href: "#why-convertx" },
-  { label: "Growth System", href: "#growth-system" },
-  { label: "Work", href: "#work" },
-  { label: "Process", href: "#process" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/#services" },
+  { label: "Why ConvertX", href: "/#why-convertx" },
+  { label: "Growth System", href: "/#growth-system" },
+  { label: "Work", href: "/#work" },
+  { label: "Process", href: "/#process" },
+  { label: "Blog", href: "/blog" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export const HERO_DEMO_METRICS = {
@@ -96,6 +102,7 @@ export const SERVICES_LIST: ServiceItem[] = [
     ],
     icon: "Target",
     badge: "Core Service",
+    href: "/meta-ads-agency",
   },
   {
     id: "instagram-ads",
@@ -111,6 +118,7 @@ export const SERVICES_LIST: ServiceItem[] = [
     ],
     icon: "Instagram",
     badge: "High Growth",
+    href: "/instagram-ads",
   },
   {
     id: "agency-accounts",
@@ -126,6 +134,7 @@ export const SERVICES_LIST: ServiceItem[] = [
     ],
     icon: "ShieldCheck",
     badge: "Infrastructure",
+    href: "/agency-accounts",
   },
   {
     id: "whatsapp-api",
@@ -142,6 +151,7 @@ export const SERVICES_LIST: ServiceItem[] = [
     ],
     icon: "MessageSquare",
     badge: "High Conversion",
+    href: "/whatsapp-business-api",
   },
   {
     id: "websites-landing-pages",
@@ -158,6 +168,7 @@ export const SERVICES_LIST: ServiceItem[] = [
     ],
     icon: "Layout",
     badge: "Performance Tech",
+    href: "/website-development",
   },
   {
     id: "ai-automation",
@@ -173,6 +184,7 @@ export const SERVICES_LIST: ServiceItem[] = [
     ],
     icon: "Cpu",
     badge: "Next Gen",
+    href: "/ai-automation",
   },
 ];
 
@@ -278,6 +290,7 @@ export const INDUSTRIES_LIST: IndustryItem[] = [
     description: "Scalable catalog ads, high-converting checkout flows, and automated WhatsApp cart recovery.",
     icon: "ShoppingBag",
     metricsPreview: "Target ROAS: 3.5x - 5.0x",
+    href: "/industries/ecommerce",
   },
   {
     id: "real-estate",
@@ -285,6 +298,7 @@ export const INDUSTRIES_LIST: IndustryItem[] = [
     description: "High-intent lead generation campaigns, instant project brochures via WhatsApp, and CRM routing.",
     icon: "Building2",
     metricsPreview: "Verified Buyer Leads",
+    href: "/industries/real-estate",
   },
   {
     id: "education",
@@ -292,6 +306,7 @@ export const INDUSTRIES_LIST: IndustryItem[] = [
     description: "Course enrollment funnels, webinar attendance boosts, and automated student qualification.",
     icon: "GraduationCap",
     metricsPreview: "Frictionless Enrollments",
+    href: "/industries/education",
   },
   {
     id: "healthcare",
@@ -299,6 +314,7 @@ export const INDUSTRIES_LIST: IndustryItem[] = [
     description: "Patient appointment bookings, localized Meta campaigns, and automated follow-ups.",
     icon: "Stethoscope",
     metricsPreview: "Qualified Appointments",
+    href: "/industries/local-business",
   },
   {
     id: "finance",
@@ -306,6 +322,7 @@ export const INDUSTRIES_LIST: IndustryItem[] = [
     description: "Trust-centric acquisition funnels with stringent compliance targeting and high LTV retention.",
     icon: "Wallet",
     metricsPreview: "High-LTV Acquisition",
+    href: "/industries/professional-services",
   },
   {
     id: "gaming-ads",
@@ -313,6 +330,7 @@ export const INDUSTRIES_LIST: IndustryItem[] = [
     description: "High-impact user acquisition funnels, in-game event promotions, and CPI optimization for gaming studios.",
     icon: "Gamepad2",
     metricsPreview: "Low CPI & High LTV",
+    href: "/industries/startups",
   },
   {
     id: "startups",
@@ -320,6 +338,7 @@ export const INDUSTRIES_LIST: IndustryItem[] = [
     description: "Rapid offer testing, agile landing page launches, and complete growth system architecture.",
     icon: "Rocket",
     metricsPreview: "Agile Scale Engine",
+    href: "/industries/startups",
   },
   {
     id: "professional-services",
@@ -327,6 +346,7 @@ export const INDUSTRIES_LIST: IndustryItem[] = [
     description: "B2B client acquisition, high-ticket strategy call bookings, and authority positioning.",
     icon: "Briefcase",
     metricsPreview: "High-Ticket Clients",
+    href: "/industries/professional-services",
   },
 ];
 

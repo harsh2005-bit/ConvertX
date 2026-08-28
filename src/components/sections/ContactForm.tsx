@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { SERVICES_LIST, CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/constants";
-import { Mail, Phone, CheckCircle, Sparkles } from "lucide-react";
+import { SERVICES_LIST, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_CALL_URL, CONTACT_WHATSAPP_URL } from "@/lib/constants";
+import { Mail, Phone, CheckCircle, Sparkles, MessageSquare } from "lucide-react";
 
 export const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -79,7 +79,7 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-24 bg-[#060608] relative border-t border-white/10">
+    <section id="contact" className="py-16 sm:py-24 bg-[var(--color-bg)] relative border-t border-[var(--color-border)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 items-start">
@@ -87,48 +87,69 @@ export const ContactForm: React.FC = () => {
           {/* Left Side Info */}
           <div className="lg:col-span-5">
             <Badge variant="orange">Get Started</Badge>
-            <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold text-[var(--color-fg)] tracking-tight leading-tight">
               Let&apos;s Build Your <br />
               <span className="text-gradient-orange">Revenue System.</span>
             </h2>
 
-            <p className="mt-4 sm:mt-6 text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p className="mt-4 sm:mt-6 text-sm sm:text-base text-[var(--color-fg-muted)] leading-relaxed">
               Book a strategy call or send us your details. We&apos;ll analyze your offer, audit your acquisition funnel, and present a custom growth roadmap.
             </p>
 
             <div className="mt-8 sm:mt-10 space-y-5">
               <div className="flex items-start gap-3.5 sm:gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#0D0E12] border border-white/10 flex items-center justify-center text-[#FF5500] shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-brand)] shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[11px] text-slate-400 block font-mono">DIRECT EMAIL</span>
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-xs sm:text-sm font-bold text-white hover:text-[#FF5500] transition-colors break-all">
+                  <span className="text-[11px] text-[var(--color-fg-muted)] block font-mono">DIRECT EMAIL</span>
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-xs sm:text-sm font-bold text-[var(--color-fg)] hover:text-[var(--color-brand)] transition-colors break-all">
                     {CONTACT_EMAIL}
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-3.5 sm:gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#0D0E12] border border-white/10 flex items-center justify-center text-[#FF5500] shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-brand)] shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
-                <div>
-                  <span className="text-[11px] text-slate-400 block font-mono">WHATSAPP / PHONE</span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-300">
+                <div className="space-y-1.5 flex-1">
+                  <span className="text-[11px] text-[var(--color-fg-muted)] block font-mono">DIRECT CALL / WHATSAPP</span>
+                  <a
+                    href={CONTACT_CALL_URL}
+                    className="text-xs sm:text-sm font-bold text-[var(--color-fg)] hover:text-[var(--color-brand)] transition-colors block"
+                  >
                     {CONTACT_PHONE}
-                  </span>
+                  </a>
+                  <div className="flex items-center gap-2 pt-1">
+                    <a
+                      href={CONTACT_WHATSAPP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#25D366]/15 border border-[#25D366]/40 text-[#25D366] text-xs font-semibold hover:bg-[#25D366]/25 transition-colors"
+                    >
+                      <MessageSquare className="w-3.5 h-3.5" />
+                      <span>WhatsApp</span>
+                    </a>
+                    <a
+                      href={CONTACT_CALL_URL}
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[var(--color-brand-subtle)] border border-[var(--color-brand)]/40 text-[var(--color-brand)] text-xs font-semibold hover:bg-[var(--color-brand)]/25 transition-colors"
+                    >
+                      <Phone className="w-3.5 h-3.5" />
+                      <span>Call Now</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Quick Guarantees */}
-            <div className="mt-8 sm:mt-10 p-5 sm:p-6 rounded-2xl bg-[#0D0E12] border border-white/10">
-              <div className="flex items-center gap-2 text-xs font-bold text-[#FF5500] uppercase tracking-wider mb-2">
+            <div className="mt-8 sm:mt-10 p-5 sm:p-6 rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border)]">
+              <div className="flex items-center gap-2 text-xs font-bold text-[var(--color-brand)] uppercase tracking-wider mb-2">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Strategy Call Promise</span>
               </div>
-              <ul className="space-y-2 text-xs text-slate-400">
+              <ul className="space-y-2 text-xs text-[var(--color-fg-muted)]">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                   <span>30-minute high-value funnel roadmap</span>
@@ -147,22 +168,50 @@ export const ContactForm: React.FC = () => {
 
           {/* Right Side Form */}
           <div className="lg:col-span-7 w-full">
-            <div className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#0D0E12] border border-white/15 shadow-2xl backdrop-blur-xl relative">
+            <div className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl bg-[var(--color-bg-card)] border border-[var(--color-border)] shadow-2xl backdrop-blur-xl relative">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-10 sm:py-12"
+                  className="text-center py-8 sm:py-10"
                 >
-                  <div className="w-14 sm:w-16 h-14 sm:h-16 rounded-full bg-[#FF5500]/10 border border-[#FF5500]/40 flex items-center justify-center text-[#FF5500] mx-auto mb-5">
+                  <div className="w-14 sm:w-16 h-14 sm:h-16 rounded-full bg-[var(--color-brand-subtle)] border border-[var(--color-brand)]/40 flex items-center justify-center text-[var(--color-brand)] mx-auto mb-5">
                     <CheckCircle className="w-7 sm:w-8 h-7 sm:h-8" />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-fg)] mb-2">
                     Message Received!
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto mb-6">
+                  <p className="text-xs sm:text-sm text-[var(--color-fg-muted)] max-w-md mx-auto mb-6">
                     Thank you for reaching out to ConvertX. Our team will review your business requirements and contact you within 12 hours.
                   </p>
+
+                  <div className="p-4 rounded-xl bg-[var(--color-bg-card-elevated)] border border-[var(--color-border)] max-w-md mx-auto mb-6 text-left">
+                    <span className="text-[11px] font-mono text-[var(--color-brand)] uppercase font-bold block mb-1">
+                      Prefer an immediate response?
+                    </span>
+                    <p className="text-xs text-[var(--color-fg-muted)] mb-3">
+                      Chat with our growth strategists right now on WhatsApp or call our team directly.
+                    </p>
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <a
+                        href={CONTACT_WHATSAPP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#25D366] text-white text-xs font-bold hover:bg-[#20ba59] transition-colors"
+                      >
+                        <MessageSquare className="w-3.5 h-3.5" />
+                        <span>Chat on WhatsApp</span>
+                      </a>
+                      <a
+                        href={CONTACT_CALL_URL}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[var(--color-bg-card-elevated)] text-[var(--color-fg)] border border-[var(--color-border)] text-xs font-bold hover:bg-[var(--color-bg-subtle)] transition-colors"
+                      >
+                        <Phone className="w-3.5 h-3.5 text-[var(--color-brand)]" />
+                        <span>Call +91 92965 69240</span>
+                      </a>
+                    </div>
+                  </div>
+
                   <Button
                     onClick={() => {
                       setSubmitted(false);
@@ -189,7 +238,7 @@ export const ContactForm: React.FC = () => {
                   {/* Name & Company */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5 sm:mb-2">
+                      <label className="block text-xs font-semibold text-[var(--color-fg-muted)] uppercase tracking-wider mb-1.5 sm:mb-2">
                         Full Name *
                       </label>
                       <input
@@ -197,15 +246,15 @@ export const ContactForm: React.FC = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="John Doe"
-                        className={`w-full px-3.5 py-3 rounded-xl bg-[#14161F] border text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#FF5500] transition-colors ${
-                          errors.name ? "border-red-500" : "border-white/10"
+                        className={`w-full px-3.5 py-3 rounded-xl bg-[var(--color-bg-card-elevated)] border text-base sm:text-sm text-[var(--color-fg)] placeholder-[#888888] focus:outline-none focus:border-[var(--color-brand)] transition-colors ${
+                          errors.name ? "border-red-500" : "border-[var(--color-border)]"
                         }`}
                       />
                       {errors.name && <span className="text-[11px] text-red-400 mt-1 block">{errors.name}</span>}
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5 sm:mb-2">
+                      <label className="block text-xs font-semibold text-[var(--color-fg-muted)] uppercase tracking-wider mb-1.5 sm:mb-2">
                         Company Name
                       </label>
                       <input
@@ -213,7 +262,7 @@ export const ContactForm: React.FC = () => {
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="Acme Brands"
-                        className="w-full px-3.5 py-3 rounded-xl bg-[#14161F] border border-white/10 text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#FF5500] transition-colors"
+                        className="w-full px-3.5 py-3 rounded-xl bg-[var(--color-bg-card-elevated)] border border-[var(--color-border)] text-base sm:text-sm text-[var(--color-fg)] placeholder-[#888888] focus:outline-none focus:border-[var(--color-brand)] transition-colors"
                       />
                     </div>
                   </div>
@@ -221,7 +270,7 @@ export const ContactForm: React.FC = () => {
                   {/* Email & Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5 sm:mb-2">
+                      <label className="block text-xs font-semibold text-[var(--color-fg-muted)] uppercase tracking-wider mb-1.5 sm:mb-2">
                         Work Email *
                       </label>
                       <input
@@ -229,15 +278,15 @@ export const ContactForm: React.FC = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="john@company.com"
-                        className={`w-full px-3.5 py-3 rounded-xl bg-[#14161F] border text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#FF5500] transition-colors ${
-                          errors.email ? "border-red-500" : "border-white/10"
+                        className={`w-full px-3.5 py-3 rounded-xl bg-[var(--color-bg-card-elevated)] border text-base sm:text-sm text-[var(--color-fg)] placeholder-[#888888] focus:outline-none focus:border-[var(--color-brand)] transition-colors ${
+                          errors.email ? "border-red-500" : "border-[var(--color-border)]"
                         }`}
                       />
                       {errors.email && <span className="text-[11px] text-red-400 mt-1 block">{errors.email}</span>}
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5 sm:mb-2">
+                      <label className="block text-xs font-semibold text-[var(--color-fg-muted)] uppercase tracking-wider mb-1.5 sm:mb-2">
                         Phone / WhatsApp *
                       </label>
                       <input
@@ -245,8 +294,8 @@ export const ContactForm: React.FC = () => {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 98765 43210"
-                        className={`w-full px-3.5 py-3 rounded-xl bg-[#14161F] border text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#FF5500] transition-colors ${
-                          errors.phone ? "border-red-500" : "border-white/10"
+                        className={`w-full px-3.5 py-3 rounded-xl bg-[var(--color-bg-card-elevated)] border text-base sm:text-sm text-[var(--color-fg)] placeholder-[#888888] focus:outline-none focus:border-[var(--color-brand)] transition-colors ${
+                          errors.phone ? "border-red-500" : "border-[var(--color-border)]"
                         }`}
                       />
                       {errors.phone && <span className="text-[11px] text-red-400 mt-1 block">{errors.phone}</span>}
@@ -256,13 +305,13 @@ export const ContactForm: React.FC = () => {
                   {/* Business Type & Budget */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5 sm:mb-2">
+                      <label className="block text-xs font-semibold text-[var(--color-fg-muted)] uppercase tracking-wider mb-1.5 sm:mb-2">
                         Business Type
                       </label>
                       <select
                         value={formData.businessType}
                         onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}
-                        className="w-full px-3.5 py-3 rounded-xl bg-[#14161F] border border-white/10 text-base sm:text-sm text-white focus:outline-none focus:border-[#FF5500] transition-colors"
+                        className="w-full px-3.5 py-3 rounded-xl bg-[var(--color-bg-card-elevated)] border border-[var(--color-border)] text-base sm:text-sm text-[var(--color-fg)] focus:outline-none focus:border-[var(--color-brand)] transition-colors"
                       >
                         <option value="E-commerce">E-commerce</option>
                         <option value="Real Estate">Real Estate</option>
@@ -275,13 +324,13 @@ export const ContactForm: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5 sm:mb-2">
+                      <label className="block text-xs font-semibold text-[var(--color-fg-muted)] uppercase tracking-wider mb-1.5 sm:mb-2">
                         Monthly Ad Budget
                       </label>
                       <select
                         value={formData.monthlyBudget}
                         onChange={(e) => setFormData({ ...formData, monthlyBudget: e.target.value })}
-                        className="w-full px-3.5 py-3 rounded-xl bg-[#14161F] border border-white/10 text-base sm:text-sm text-white focus:outline-none focus:border-[#FF5500] transition-colors"
+                        className="w-full px-3.5 py-3 rounded-xl bg-[var(--color-bg-card-elevated)] border border-[var(--color-border)] text-base sm:text-sm text-[var(--color-fg)] focus:outline-none focus:border-[var(--color-brand)] transition-colors"
                       >
                         <option value="< ₹50,000">Under ₹50,000 / month</option>
                         <option value="₹50,000 - ₹1,50,000">₹50,000 - ₹1,50,000 / month</option>
@@ -293,7 +342,7 @@ export const ContactForm: React.FC = () => {
 
                   {/* Services Checkboxes */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2 sm:mb-3">
+                    <label className="block text-xs font-semibold text-[var(--color-fg-muted)] uppercase tracking-wider mb-2 sm:mb-3">
                       What do you need help with?
                     </label>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -306,8 +355,8 @@ export const ContactForm: React.FC = () => {
                             onClick={() => toggleService(srv.title)}
                             className={`px-3 py-2.5 rounded-xl text-xs font-medium text-left border transition-all active:scale-98 ${
                               isSelected
-                                ? "bg-[#FF5500]/15 border-[#FF5500] text-[#FF5500]"
-                                : "bg-[#14161F] border-white/10 text-slate-300 hover:text-white"
+                                ? "bg-[var(--color-brand-subtle)] border-[var(--color-brand)] text-[var(--color-brand)]"
+                                : "bg-[var(--color-bg-card-elevated)] border-[var(--color-border)] text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
                             }`}
                           >
                             {srv.title}
@@ -319,7 +368,7 @@ export const ContactForm: React.FC = () => {
 
                   {/* Message */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5 sm:mb-2">
+                    <label className="block text-xs font-semibold text-[var(--color-fg-muted)] uppercase tracking-wider mb-1.5 sm:mb-2">
                       Project Details / Message
                     </label>
                     <textarea
@@ -327,7 +376,7 @@ export const ContactForm: React.FC = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Tell us about your current campaigns, website, and growth targets..."
-                      className="w-full px-3.5 py-3 rounded-xl bg-[#14161F] border border-white/10 text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#FF5500] transition-colors resize-none"
+                      className="w-full px-3.5 py-3 rounded-xl bg-[var(--color-bg-card-elevated)] border border-[var(--color-border)] text-base sm:text-sm text-[var(--color-fg)] placeholder-[#888888] focus:outline-none focus:border-[var(--color-brand)] transition-colors resize-none"
                     />
                   </div>
 

@@ -24,17 +24,17 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none group";
+    "inline-flex items-center justify-center font-medium rounded-full cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)] transition-all duration-300";
 
   const variants = {
     primary:
-      "bg-[#FF5500] hover:bg-[#FF6600] text-white shadow-lg shadow-[#FF5500]/25 hover:shadow-[#FF5500]/40 hover:-translate-y-0.5 active:translate-y-0",
+      "bg-[var(--color-brand)] hover:bg-[var(--color-brand-hover)] text-white shadow-[var(--shadow-cta)] hover:shadow-[0_8px_32px_-6px_rgba(255,106,0,0.45)] hover:-translate-y-0.5 active:translate-y-0",
     secondary:
-      "bg-[#12131A] hover:bg-[#1A1C26] text-white border border-white/10 hover:border-[#FF5500]/40 hover:-translate-y-0.5 active:translate-y-0",
+      "bg-[var(--color-bg-card)] text-[var(--color-fg)] border border-[var(--color-border)] hover:border-[var(--color-brand)] hover:-translate-y-0.5 active:translate-y-0 dark:bg-transparent",
     outline:
-      "bg-transparent text-white border border-[#FF5500]/50 hover:border-[#FF5500] hover:bg-[#FF5500]/10 hover:-translate-y-0.5",
+      "bg-transparent text-[var(--color-fg)] border border-[var(--color-brand)]/50 hover:border-[var(--color-brand)] hover:bg-[var(--color-brand-subtle)] hover:-translate-y-0.5",
     ghost:
-      "bg-transparent text-slate-300 hover:text-white hover:bg-white/5",
+      "bg-transparent text-[var(--color-fg-muted)] hover:text-[var(--color-fg)] hover:bg-[var(--color-bg-subtle)]",
   };
 
   const sizes = {
@@ -54,10 +54,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   if (href) {
     return (
-      <a
-        href={href}
-        className={cn(baseStyles, variants[variant], sizes[size], className)}
-      >
+      <a href={href} className={cn(baseStyles, variants[variant], sizes[size], className)}>
         {content}
       </a>
     );
@@ -73,3 +70,5 @@ export const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
+
+export const ThemeButton = Button;
