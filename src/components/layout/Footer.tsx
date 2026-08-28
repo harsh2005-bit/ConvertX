@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight, Phone, Mail, MessageSquare } from "lucide-react";
-import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_CALL_URL, CONTACT_WHATSAPP_URL } from "@/lib/constants";
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_CALL_URL, CONTACT_WHATSAPP_URL, INSTAGRAM_URL } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
 
 const InstagramIcon = () => (
@@ -38,9 +38,16 @@ export const Footer: React.FC = () => {
           
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="inline-flex text-[var(--color-fg)] transition-transform hover:scale-105" aria-label="ConvertX home">
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex text-[var(--color-fg)] transition-transform hover:scale-105"
+              aria-label="ConvertX on Instagram"
+              title="ConvertX on Instagram"
+            >
               <Logo height={44} className="h-11" />
-            </Link>
+            </a>
 
             <p className="text-base font-semibold text-[var(--color-fg)]">
               &ldquo;Turn Attention Into Revenue.&rdquo;
@@ -53,7 +60,7 @@ export const Footer: React.FC = () => {
             {/* Social Icons */}
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://instagram.com"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-fg-muted)] hover:text-[var(--color-brand)] hover:border-[var(--color-brand)]/40 transition-colors"

@@ -59,6 +59,7 @@ export const CONTACT_PHONE = "+91 92965 69240";
 export const CONTACT_PHONE_RAW = "+919296569240";
 export const CONTACT_CALL_URL = "tel:+919296569240";
 export const CONTACT_WHATSAPP_URL = "https://wa.me/919296569240?text=Hi%20ConvertX%2C%20I'd%20like%20to%20discuss%20growing%20my%20business%20with%20your%20growth%20system.";
+export const INSTAGRAM_URL = "https://www.instagram.com/_convertxmedia?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==";
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },

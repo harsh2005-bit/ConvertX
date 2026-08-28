@@ -41,7 +41,7 @@ export const FinalCTA: React.FC = () => {
 
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button href="#contact" variant="primary" size="lg" showArrow>
-                Book a Free Strategy Call
+                Book a Call
               </Button>
               <a
                 href={CONTACT_WHATSAPP_URL}

@@ -395,7 +395,7 @@ export const ServicePageTemplate: React.FC<ServicePageProps> = (props) => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
               <Button href="/#contact" variant="primary" size="lg" showArrow>
-                Book a Free Strategy Call
+                Book a Call
               </Button>
               <a
                 href={CONTACT_WHATSAPP_URL}

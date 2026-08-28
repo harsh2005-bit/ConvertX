@@ -52,7 +52,7 @@ export const Hero: React.FC = () => {
             {/* CTAs */}
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
               <Button href="/#contact" variant="primary" size="lg" className="w-full sm:w-auto justify-center" showArrow>
-                Book a Free Strategy Call
+                Book a Call
               </Button>
               <Button href="/#services" variant="secondary" size="lg" className="w-full sm:w-auto justify-center">
                 Explore Our Services

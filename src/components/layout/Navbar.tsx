@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, Phone, MessageSquare } from "lucide-react";
-import { NAV_LINKS, CONTACT_CALL_URL, CONTACT_WHATSAPP_URL, CONTACT_PHONE } from "@/lib/constants";
+import { NAV_LINKS, CONTACT_CALL_URL, CONTACT_WHATSAPP_URL, CONTACT_PHONE, INSTAGRAM_URL } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Logo } from "@/components/ui/Logo";
@@ -35,13 +35,16 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link
-            href="/"
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center text-[var(--color-fg)] group transition-transform duration-300 hover:scale-105"
-            aria-label="ConvertX home"
+            aria-label="ConvertX on Instagram"
+            title="ConvertX on Instagram"
           >
             <Logo height={36} className="h-8 sm:h-9 md:h-10" />
-          </Link>
+          </a>
 
           {/* Desktop Navigation Links */}
           <nav
@@ -99,7 +102,7 @@ export const Navbar: React.FC = () => {
 
             <div className="hidden sm:block">
               <Button href="/#contact" variant="primary" size="sm" showArrow>
-                Book a Free Strategy Call
+                Book a Call
               </Button>
             </div>
 
@@ -177,7 +180,7 @@ export const Navbar: React.FC = () => {
                   onClick={() => setMobileMenuOpen(false)}
                   showArrow
                 >
-                  Book a Free Strategy Call
+                  Book a Call
                 </Button>
 
                 {/* Theme toggle in mobile menu */}
