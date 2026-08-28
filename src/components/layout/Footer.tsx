@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight, Phone, Mail, MessageSquare } from "lucide-react";
-import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_CALL_URL, CONTACT_WHATSAPP_URL, INSTAGRAM_URL } from "@/lib/constants";
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_CALL_URL, CONTACT_WHATSAPP_URL, FACEBOOK_URL, INSTAGRAM_URL } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
 
 const InstagramIcon = () => (
@@ -78,7 +78,7 @@ export const Footer: React.FC = () => {
                 <LinkedinIcon />
               </a>
               <a
-                href="https://facebook.com"
+                href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-fg-muted)] hover:text-[var(--color-brand)] hover:border-[var(--color-brand)]/40 transition-colors"
