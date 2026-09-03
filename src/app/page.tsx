@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
+import { PartnerSection } from "@/components/partners/PartnerSection";
 import { TrustSection } from "@/components/sections/TrustSection";
 import { Services } from "@/components/sections/Services";
 import { WhyConvertX } from "@/components/sections/WhyConvertX";
@@ -21,6 +22,7 @@ export default function Home() {
     <main className="theme-page relative overflow-hidden">
       <Navbar />
       <Hero />
+      <PartnerSection />
       <TrustSection />
       <Services />
       <WhyConvertX />

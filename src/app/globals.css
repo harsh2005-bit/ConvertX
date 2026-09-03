@@ -335,6 +335,42 @@ html.theme-ready body * {
   animation: pulseGlow 4s ease-in-out infinite;
 }
 
+@keyframes marquee-scroll-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-scroll-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-scroll-left 40s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  animation: marquee-scroll-right 40s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left,
+  .animate-marquee-right,
+  .marquee-container * {
+    animation-play-state: paused !important;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -356,3 +392,4 @@ html.theme-ready body * {
   background-color: var(--color-brand);
   color: #ffffff;
 }
+

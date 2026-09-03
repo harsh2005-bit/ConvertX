@@ -38,16 +38,14 @@ export const Footer: React.FC = () => {
           
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/"
               className="inline-flex text-[var(--color-fg)] transition-transform hover:scale-105"
-              aria-label="ConvertX on Instagram"
-              title="ConvertX on Instagram"
+              aria-label="ConvertX - Home"
+              title="ConvertX - Turn Attention Into Revenue"
             >
-              <Logo height={44} className="h-11" />
-            </a>
+              <Logo className="h-10 sm:h-12" />
+            </Link>
 
             <p className="text-base font-semibold text-[var(--color-fg)]">
               &ldquo;Turn Attention Into Revenue.&rdquo;

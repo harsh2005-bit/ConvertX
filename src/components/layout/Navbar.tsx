@@ -35,16 +35,14 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/"
             className="flex items-center text-[var(--color-fg)] group transition-transform duration-300 hover:scale-105"
-            aria-label="ConvertX on Instagram"
-            title="ConvertX on Instagram"
+            aria-label="ConvertX - Home"
+            title="ConvertX - Turn Attention Into Revenue"
           >
-            <Logo height={36} className="h-8 sm:h-9 md:h-10" />
-          </a>
+            <Logo className="h-9 sm:h-10 md:h-11" />
+          </Link>
 
           {/* Desktop Navigation Links */}
           <nav
